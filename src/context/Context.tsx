@@ -23,9 +23,15 @@ export const useGlobalContext = () => {
   const utilContext = useContext(context);
   return utilContext;
 };
-const initialState: ShortUrlState = JSON.parse(
-  localStorage.getItem("shortUrls") || ""
-) || { urls: [] };
+const getInitialState = (): ShortUrlState => {
+  if (localStorage.getItem("shortUrls")) {
+    return JSON.parse(localStorage.getItem("shortUrls") || "");
+  } else {
+    return { urls: [] };
+  }
+};
+
+const initialState: ShortUrlState = getInitialState();
 
 function Context({ children }: { children: ReactNode }) {
   const [textCopied, setTextCopied] = useState<string>("");
