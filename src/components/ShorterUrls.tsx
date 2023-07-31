@@ -1,9 +1,9 @@
-import { useGlobalContext } from "../context/Context";
+import { GlobalContextType, useGlobalContext } from "../context/Context";
 import CardShorterUrl from "./CardShorterUrl";
-import './ShorterUrls.sass'
+import "./ShorterUrls.sass";
 
 function ShorterUrls() {
-  const { shortUrls } = useGlobalContext();
+  const { shortUrls } = useGlobalContext() as GlobalContextType;
   return (
     <div className="shorterUrls__container">
       {shortUrls.urls.map((short) => (

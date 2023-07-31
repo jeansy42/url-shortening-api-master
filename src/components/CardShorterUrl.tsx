@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { useGlobalContext } from "../context/Context";
-function CardShorterUrl({ sUrl }) {
+import { GlobalContextType, useGlobalContext } from "../context/Context";
+import { ShortUrlItem } from "../context/ShortUrlReducer";
+function CardShorterUrl({ sUrl }: { sUrl: ShortUrlItem }) {
   const [copy, setCopy] = useState<boolean>(false);
-  const { textCopied, setTextCopied, deleteShortUrl } = useGlobalContext();
+  const { textCopied, setTextCopied, deleteShortUrl } =
+    useGlobalContext() as GlobalContextType;
 
   const handleClick = async () => {
     try {
@@ -25,8 +27,10 @@ function CardShorterUrl({ sUrl }) {
       <div className="shorterUrl__short">
         <div className="deleteShort__container">
           <span>{sUrl.short}</span>
-          <span onClick={() => deleteShortUrl(sUrl.id)} className="delete">
-          </span>
+          <span
+            onClick={() => deleteShortUrl(sUrl.id)}
+            className="delete"
+          ></span>
         </div>
         <button className={`btn ${copy ? "active" : ""}`} onClick={handleClick}>
           {copy ? "Copied!" : "Copy"}

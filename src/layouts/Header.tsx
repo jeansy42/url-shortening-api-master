@@ -1,8 +1,8 @@
 import "./Header.sass";
 import HeaderElements from "../components/HeaderElements";
-import { useGlobalContext } from "../context/Context";
+import { GlobalContextType, useGlobalContext } from "../context/Context";
 function Header() {
-  const { accordion, setAccordion } = useGlobalContext();
+  const { accordion, setAccordion } = useGlobalContext() as GlobalContextType;
   const handleClick = () => setAccordion(!accordion);
   return (
     <div className="header" role="banner">

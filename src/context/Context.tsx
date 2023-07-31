@@ -1,16 +1,33 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useState,
+  ReactNode,
+} from "react";
 import ShortUrlReducer from "./ShortUrlReducer";
 import { ShortUrlState, ShortUrlItem } from "./ShortUrlReducer";
 
-const context = createContext();
+export interface GlobalContextType {
+  addShortUrl: (obj: ShortUrlItem) => void;
+  shortUrls: ShortUrlState;
+  textCopied: string;
+  setTextCopied: (text: string) => void;
+  deleteShortUrl: (id: string) => void;
+  accordion: boolean;
+  setAccordion: (value: boolean) => void;
+}
+
+const context = createContext<GlobalContextType | undefined>(undefined);
 export const useGlobalContext = () => {
   const utilContext = useContext(context);
   return utilContext;
 };
-const initialState: ShortUrlState =
-  JSON.parse(localStorage.getItem("shortUrls")) || { urls: [] };
+const initialState: ShortUrlState = JSON.parse(
+  localStorage.getItem("shortUrls") || ""
+) || { urls: [] };
 
-function Context({ children }) {
+function Context({ children }: { children: ReactNode }) {
   const [textCopied, setTextCopied] = useState<string>("");
   const [accordion, setAccordion] = useState<boolean>(false);
   const [shortUrls, dispatch] = useReducer(ShortUrlReducer, initialState);

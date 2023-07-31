@@ -1,4 +1,10 @@
-function HeaderElements({ accordion, dispositive }) {
+function HeaderElements({
+  accordion,
+  dispositive,
+}: {
+  accordion: boolean;
+  dispositive: string;
+}) {
   return (
     <div
       className={`header__elements${

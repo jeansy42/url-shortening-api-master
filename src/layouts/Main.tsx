@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import "./Main.sass";
 import Form from "../components/Form";
 import ShorterUrls from "../components/ShorterUrls";
-import { useGlobalContext } from "../context/Context";
+import { GlobalContextType, useGlobalContext } from "../context/Context";
 
 function Main() {
-  const { accordion, shortUrls } = useGlobalContext();
+  const { accordion, shortUrls } = useGlobalContext() as GlobalContextType;
 
   useEffect(() => {
     localStorage.setItem("shortUrls", JSON.stringify(shortUrls));

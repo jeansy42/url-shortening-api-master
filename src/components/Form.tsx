@@ -1,9 +1,9 @@
 import "./Form.sass";
 import { useState } from "react";
-import { useGlobalContext } from "../context/Context";
+import { GlobalContextType, useGlobalContext } from "../context/Context";
 import { ShortUrlItem } from "../context/ShortUrlReducer";
 function Form() {
-  const { addShortUrl, shortUrls } = useGlobalContext();
+  const { addShortUrl } = useGlobalContext() as GlobalContextType;
 
   const [url, setUrl] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
