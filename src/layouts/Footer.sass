@@ -1,0 +1,63 @@
+@import ../assets/styles/_mixins
+@import ../assets/styles/_variables
+%backGround_props
+    content: ''
+    width: 1.3rem
+    height: 1.3rem
+    background-repeat: no-repeat
+    background-position: center
+    background-size: contain
+.footer
+    @include flex_box($direction: column)
+    background-color: $vd_violet
+    color: #ffffff
+    align-items: center
+    padding: 2rem
+    h4
+        margin-block-end: 1rem
+        font-size: 1.4rem
+.footer__item
+    @include flex_box($direction: column)
+    margin-block-start: 1rem
+    margin-block-end: 1rem
+    h5, span
+        align-self: center
+    h5
+        margin-block-end: .8rem
+    span
+        cursor: pointer
+        color: $g_violet
+        font-size: .8rem
+        margin-block-start: .5rem
+        transition: color .3s
+    span:hover
+        color: $cyan
+.footer__item.networks
+    flex-direction: row
+    gap: 1.2rem
+.net_item
+    display: inline-flex
+.net_item:hover::after
+    filter: invert(50%) sepia(28%) saturate(990%) hue-rotate(131deg) brightness(104%) contrast(180%)
+.facebook:after
+    background-image: url(../assets/images/icon-facebook.svg)
+    @extend %backGround_props
+.twitter:after
+    background-image: url(../assets/images/icon-twitter.svg)
+    @extend %backGround_props
+.pinterest:after
+    content: url(../assets/images/icon-pinterest.svg)
+    @extend %backGround_props
+
+.instagram:after
+    background-image: url(../assets/images/icon-instagram.svg)
+    @extend %backGround_props
+//Desktop
+@include break_point()
+    .footer
+        padding-inline: 4rem
+        flex-direction: row
+        justify-content: space-between
+        align-items: flex-start
+    .footer__item
+        margin-block: 0

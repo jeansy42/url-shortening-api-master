@@ -1,0 +1,152 @@
+@import ../assets/styles/_mixins
+@import ../assets/styles/_variables
+%backGround_props
+    content: ''
+    width: 2.5rem
+    height: 2.5rem
+    background-repeat: no-repeat
+    background-position: center
+    background-size: contain
+.main
+    width: 100%
+.main__top, .main__middle, .main__feet
+    padding: 2rem 1.5rem
+.main__top
+    padding-block-start: 0
+    background-color: #fff
+    @include flex_box($direction: column-reverse)
+.slogan
+    text-align: center
+    h2
+        font-size: 2em
+    p
+        color: $g_violet
+        margin-block-end: 1.5rem
+    button
+        @include btn($radius: 100px)
+.main__img
+    overflow: hidden
+    img
+        width: 100%
+        min-width: 450px
+.main__img.hidden
+    display: none
+.statistics
+    margin-block-start: 5rem
+    margin-block-end: 4rem
+    text-align: center
+    h3
+        font-size: 1.4rem
+        margin-block-end: 1rem
+    p
+        font-size: .8rem
+        color: $g_violet
+.statistics__items
+    @include flex_box($direction: column)
+.card
+    background-color: #fff
+    margin-block-end: 4.5rem
+    text-align: center
+    padding: 1rem
+    border-radius: 8px
+    h3
+        transform: translateY(-1rem)
+        font-size: 1.2rem
+    p
+        font-size: .8rem
+        line-height: 1.4rem
+        color: $g_violet
+.card.customizable
+    margin-block-end: 0
+.icon
+    display: inline-flex
+    border-radius: 50%
+    background-color: $d_violet
+    padding: 1.2rem
+    transform: translateY(-3.2rem)
+.brand__icon:after
+    background-image: url(../assets/images/icon-brand-recognition.svg)
+    @extend %backGround_props
+.records__icon:after
+    background-image: url(../assets/images/icon-detailed-records.svg)
+    @extend %backGround_props
+.customizable__icon:after
+    background-image: url(../assets/images/icon-fully-customizable.svg)
+    @extend %backGround_props
+.nexo
+    display: inline-flex
+    align-self: center
+.nexo:after
+    content: ''
+    background-color: $cyan
+    transform-origin: bottom
+    position: relative
+    z-index: -1
+    transform: scaleY(20)
+    height: .5rem
+    width: .5rem
+.main__feet
+    background-image: url(../assets/images/bg-boost-mobile.svg)
+    background-color: $d_violet
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    color: #fff
+    margin-block-start: 2rem
+    padding-block: 4.5rem
+    text-align: center
+    h3
+        font-size: 1.4rem
+        margin-block-end: 1rem
+    button
+        @include btn($radius: 100px)
+// Desktop
+@include break_point()
+    .main__top, .main__middle, .main__feet
+        padding-inline: 4rem
+    .main__middle
+        display: flex
+        flex-direction: column
+    .main__helper
+        @include flex_box($direction:row-reverse,$justify: space-between)
+    .main__img.hidden
+        display: block
+    .main__description
+        display: flex
+    .main__img
+        img
+            max-width: 550px
+    .slogan
+        @include flex_box($direction: column)
+        align-items: flex-start
+        text-align: start
+        h2
+            font-size: 3.5rem
+    .statistics
+        margin-block-end: 5rem
+        h3
+            font-size: 1.8rem
+        p
+            font-size: 1rem
+    .statistics__items
+        flex-direction: row
+        margin-block-end: 5rem
+        gap: .8rem
+    .nexo:after
+        transform: rotate(90deg)
+        transform: scaleX(5)
+    .card
+        max-width: 300px
+        margin-block-end: 0
+    .records.card, .customizable.card
+        position: relative
+    .records.card
+        top: 2rem
+    .customizable.card
+        top: 4rem
+    .icon
+        transform: translate(-3.8em,-3.2rem)
+    .main__feet
+        background-image: url(../assets/images/bg-boost-desktop.svg)
+        h3
+            font-size: 1.8rem

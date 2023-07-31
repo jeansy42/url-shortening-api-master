@@ -1,0 +1,63 @@
+@import '../assets/styles/_mixins'
+@import '../assets/styles/_variables'
+.form
+    transform: translateY(5rem)
+    padding: 1rem
+    border-radius: 5px
+    @include flex_box($direction: column)
+    background-image: url('../assets/images/bg-shorten-mobile.svg')
+    background-repeat: no-repeat
+    background-position: right
+    background-size: contain
+    background-color: $d_violet
+    button
+        @include btn($radius: 4px)
+        margin-block-start: .8rem
+        width: 100%
+        max-width: 285px
+        align-self: center
+.form__input
+    @include flex_box($direction: column)
+    .url__input
+        border: none
+        outline: none
+        border-radius: 4px
+        padding: .5rem 
+        color: $g_violet
+        font-weight: 700
+    .url__input.active
+        border: 2px solid $red
+    .url__input.active::placeholder
+        color: $red
+    .url__input::placeholder
+        color: $g_violet
+.error
+    padding-block-start: .4rem
+    font-size: .6em
+    color: $red
+//Desktop
+@include break_point()
+    .form
+        width: 100%
+        align-self: center
+        max-width: 1000px
+        padding: 1.8rem 3rem
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        background-image: url('../assets/images/bg-shorten-desktop.svg')
+        background-size: cover
+        button
+            padding: .9rem
+            white-space: nowrap
+            align-self: flex-start
+            margin-block-start: 0
+            width: auto
+
+    .form__input
+        width: 100%
+        margin-inline-end: 1rem
+        align-self: center
+        .url__input
+            padding: .9rem
+            font-size: .9rem

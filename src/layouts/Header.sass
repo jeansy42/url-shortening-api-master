@@ -1,0 +1,89 @@
+@import ../assets/styles/_mixins
+@import ../assets/styles/_variables
+.header
+    @include flex_box($justify:space-between, $direction:column)
+    width: 100%
+    padding: 2rem 1.5rem
+    background-color: #fff
+.header__content
+    width: 100%
+    @include flex_box($justify: space-between)
+    margin-block-end: .8rem
+.accordion
+    cursor: pointer
+    padding: .8rem
+    background-image: url(../assets/images/bars-solid.svg)
+    background-repeat: no-repeat
+    background-position: center
+    background-size: contain
+    transition: background-image .2s
+.accordion.active
+    padding: .7rem
+    background-image: url(../assets/images/x-solid.svg)
+.header__elements
+    display: none
+.header__elements-shorter
+    padding: 1.8rem 1.5rem
+    padding-block-end: 0
+    border-radius: 10px
+    background-color: $d_violet
+    color: #fff
+    font-weight: 700
+    @include flex_box($direction:column)
+    ul
+        @include flex_box($direction: column)
+        align-items: center
+        list-style: none
+        li
+            cursor: pointer
+            transition: color .3s
+            margin-block-end: 2rem
+        li:hover, li:active
+            color: #000
+    .pages
+        border-block-end: 1px solid $g_violet
+        margin-block-end: 2rem
+    .login
+        & :last-child
+            text-align: center
+            width: 100%
+            padding: 12px 0
+            border-radius: 100px
+            background-color: $cyan
+
+//Desktop
+@include break_point()
+    .header
+        padding-inline: 4rem
+    .header__elements-shorter
+        display: none
+    .header__title
+        margin-inline-end: 1rem
+    .header__elements.desktop
+        width: 100%
+        @include flex_box($justify:space-between)
+        align-items: center
+        ul
+            list-style: none
+            @include flex_box()
+            font-size: .8rem
+            color: $g_violet
+            font-weight: 700
+            li
+                margin-inline-start: 1.5rem
+                cursor: pointer
+                transition: color .3s
+            li:hover
+                color: $d_violet
+        .login
+            & :first-child
+                align-self: center
+                
+            & :last-child
+                padding: .5rem 1.2rem
+                color: #fff
+                border-radius: 100px
+                background-color: $cyan
+
+    .accordion
+        display: none
