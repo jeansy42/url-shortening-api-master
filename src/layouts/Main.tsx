@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import worker from "../assets/images/illustration-working.svg";
 import "./Main.sass";
 import Form from "../components/Form";
 import ShorterUrls from "../components/ShorterUrls";
@@ -16,10 +17,7 @@ function Main() {
         <Form />
         <div className="main__helper">
           <div className={`main__img ${accordion ? "hidden" : ""}`}>
-            <img
-              src="../src/assets/images/illustration-working.svg"
-              alt="Worker at Pc"
-            />
+            <img src={worker} alt="Worker at Pc" />
           </div>
           <div className="main__description">
             <div className="slogan">
